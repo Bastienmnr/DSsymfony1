@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acceuil CineClub
+{% endblock %}
+
+
+{% block body %}
+	<h1>Liste des films</h1>
+
+	<ul>
+		{% for film in films %}
+			<li>
+				<h2>
+					<a href="{{ path('app_film', {id: film.id}) }}">{{ film.titre }}</h2>
+
+					<p>Realisé par :
+						{{ film.realisateur }}</p>
+					<p>Date de sortie :
+						{{ film.datesortie }}</p>
+					<p>Durée :
+						{{ film.duree }}
+						minutes</p>
+				</li>
+			{% else %}
+				<li>Aucun film à afficher.</li>
+			{% endfor %}
+		</ul>
+	{% endblock %}

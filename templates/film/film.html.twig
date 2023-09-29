@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h1>Titre :{{ film.titre }}</h1>
+	<h3>
+		Réalisateur:{{ film.realisateur}}</h3>
+	<p>Description:{{ film.description }}</p>
+	<p>Date de sortie:{{ film.datesortie }}</p>
+	<h2>Projections</h2>
+	<ul>
+		{% for projection in film.getProjections() %}
+			<li>{{ projection.getDateHeureDebut()|date('d-m-Y H:i:s') }}</li>
+		{% endfor %}
+	</ul>
+
+	<!-- Afficher les autres détails du film ici -->
+{% endblock %}
